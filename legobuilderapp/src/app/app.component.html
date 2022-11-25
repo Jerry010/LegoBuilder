@@ -1,2 +1,17 @@
-<h1>Legobuilder app</h1>
-<app-overview-component></app-overview-component>
+<header>
+    
+    <div class="user-account">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MmBOmXsxgjBhhfDh4FSeM9wsFRgC_2uPrE362dA&s" alt="Jerry" class="user-image" />
+        <h4 class="user-name">Jerry > My Lego collection</h4>
+    </div>
+        
+</header>
+
+<div class="main-content">
+   <app-overview-component
+    	*ngIf="contentFetched"
+        [user]="loggedInUser"
+        [myLegoSets]="myLegoSetCollection"
+        [myLegoBlocks]="myLegoBlockCollection"
+    ></app-overview-component>
+</div>

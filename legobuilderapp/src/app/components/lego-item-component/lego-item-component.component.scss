@@ -1,0 +1,117 @@
+.component.lego-item{
+    margin:20px;
+    position:relative;
+
+    &:hover{
+        cursor:pointer;
+    }
+
+    .lego-item-title{
+        padding-top:10px;
+    }
+
+    .lego-item-image-wrapper, .required-lego-item-image-wrapper{
+        width:70px;
+        height:70px;
+        padding: 5px;
+        vertical-align:middle;
+        border-radius:50%;
+        border:1px solid black;
+        display:inline-block;
+        box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+        overflow:hidden;
+    }
+
+    .lego-item-image{
+        width:100%;
+        height:100%;
+    }
+
+    &.not-owned{
+        .lego-item-image{
+            -webkit-filter: grayscale(100%);
+        }
+
+        .lego-item-quantity, .error-message{
+            color:red;
+        }
+    } 
+
+    .lego-item-input-wrapper{
+        padding-top:10px;
+        visibility: hidden;
+
+        .lego-item-input{
+            width:40px;
+        }
+
+        .lego-item-save-btn{
+            height: 31px;
+            line-height: 12px;
+            margin-top: -3px;
+            margin-left:10px;
+        }
+
+        &.show{
+            visibility: visible;
+        }
+    }
+
+    .lego-set-hover-state{
+        display:none;
+    }
+
+    //set styling
+    &.is-lego-set{
+        .lego-item-image-wrapper{
+            width:240px;
+            height:180px;
+            padding: 5px;
+            vertical-align:middle;
+            border-radius:5px;
+        }
+
+        .lego-set-hover-state{
+            left:38px;
+            width:240px;
+            height:180px;
+            position:absolute;
+            top:0;
+            display:none;
+            border-radius:5px;
+            background-color: rgba(0,0,0,0.70);
+
+
+            .required-block-wrapper{
+                text-align: left;
+
+                .required-lego-item-image-wrapper{
+                    width:50px;
+                    height:50px;
+                    margin:5px;
+
+                    .lego-item-image{
+                        scale: 1.3;
+                    }
+                }
+
+                .required-lego-block-title{
+                    color:#ffffff;
+                    display: inline-block;
+                    padding-left: 10px;
+                }
+
+            }
+
+        }
+
+        &:hover{
+
+            .lego-set-hover-state{
+                display:block;
+            }
+            
+        }
+    }
+
+}

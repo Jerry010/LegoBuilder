@@ -1,0 +1,35 @@
+<div (click)="toggleShowAddItemsField()" class="component lego-item" [ngClass]="{'not-owned':possessedLegoItem.quantity < 1,'is-lego-set':!isLegoBlock}">
+
+    <div class="lego-item-image-wrapper">
+        <img src="{{possessedLegoItem.lego.imageUrl}}" alt="{{possessedLegoItem.lego.imageUrl}}" class="lego-item-image" />
+        <div class="lego-set-hover-state">
+
+            <ng-container *ngIf="possessedLegoItem.requiredBlocks?.length > 0">
+
+                <div *ngFor="let requiredBlock of possessedLegoItem.requiredBlocks" class="required-block-wrapper">
+                    <div class="required-lego-item-image-wrapper">
+                        <img src="{{requiredBlock?.lego?.imageUrl}}" alt="{{requiredBlock?.lego?.name}}" class="lego-item-image" />
+                    </div>
+                
+                    <h6 class="required-lego-block-title">{{requiredBlock?.lego?.name}} 
+                        <span class="required-lego-block-quantity">x {{requiredBlock?.quantity}}</span>
+                    </h6>
+                </div>
+            </ng-container>
+
+
+        </div>
+    </div>
+
+    <h6 class="lego-item-title">{{possessedLegoItem.lego.name}} 
+        <span *ngIf="!showAddItemsField" class="lego-item-quantity">x <span class="items-in-possession">{{possessedLegoItem.quantity}}</span></span>
+    </h6>
+
+    <div [ngClass]="showAddItemsField ? 'show' : ''" class="lego-item-input-wrapper">
+        <input type="number" name="lego-item-input" [(ngModel)]="possessedLegoItem.quantity" (click)="preventPropagation($event)" min="0" max="99">
+        <button (click)="changedNumberOfItemsInPossession($event)" type="button" class="btn btn-primary lego-item-save-btn">Save</button>
+        <p *ngIf="inputError.length > 0" class="error-message">{{inputError}}</p>
+    </div>
+
+    
+</div>   

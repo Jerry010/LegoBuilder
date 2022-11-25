@@ -1,1 +1,40 @@
-<app-item-component></app-item-component>
+<div class="component overview">
+
+    <section class="collection-section lego-blocks-wrapper">
+        <h3 class="section-title">Lego blocks</h3>
+        <div class="container text-center">
+            <div class="row align-items-center">
+
+              <div *ngFor="let myLegoBlock of myLegoBlocks" class="col lego-item">
+                <app-lego-item-component
+                    [isLegoBlock]="true"
+                    [possessedLegoItem]="myLegoBlock"
+                    (numberOfItemsInPossessionChanged)="onNumberOfItemsInPossessionChanged()"
+                ></app-lego-item-component>
+              </div>
+              
+            </div>
+          </div>
+       
+    </section>
+    
+    <section class="collection-section lego-sets-wrapper">
+        <h3 class="section-title">Lego sets</h3>
+        <div class="container text-center">
+            <div class="row align-items-center">
+
+              <div *ngFor="let myLegoSet of myLegoSets" class="col lego-item">
+                <app-lego-item-component
+                    [isLegoBlock]="false"
+                    [possessedLegoItem]="myLegoSet"
+                    (numberOfItemsInPossessionChanged)="onNumberOfItemsInPossessionChanged()"
+                ></app-lego-item-component>
+              </div>
+              
+            </div>
+          </div>
+       
+    </section>
+
+</div>
+

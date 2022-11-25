@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ItemComponentComponent } from './components/item-component/item-component.component';
 import { OverviewComponentComponent } from './components/overview-component/overview-component.component';
 import { ApiService } from './services/api-service.service';
+import { LegoItemComponentComponent } from './components/lego-item-component/lego-item-component.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponentComponent,
-    OverviewComponentComponent
+    OverviewComponentComponent,
+    LegoItemComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ApiService
